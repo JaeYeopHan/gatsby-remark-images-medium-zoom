@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./logo.png" width="480px" />
+</div>
+
 # gatsby-remark-images-medium-zoom-plugin 👋
 
 <p>
