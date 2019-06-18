@@ -9,16 +9,18 @@
 
 > [medium-zoom](https://github.com/francoischalifour/medium-zoom) plugin for gatsby with `gatsby-remark-images`
 
-## Use Case
+## 🗂 Use Case
 
 - [gatsby-starter-bee](https://github.com/JaeYeopHan/gatsby-starter-bee)
 
 ## 🚚 Install
 
 ```
-$ npm install --save gatsby-remark-images gatsby-remark-images-medium-zoom
+$ npm install --save gatsby-remark-images-medium-zoom
+$ npm install --save gatsby-remark-images gatsby-transformer-remark
 # or
-$ yarn add gatsby-remark-images gatsby-remark-images-medium-zoom
+$ yarn add gatsby-remark-images-medium-zoom
+$ yarn add gatsby-remark-images gatsby-transformer-remark
 ```
 
 ## 🚀 How to use
