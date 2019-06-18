@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./logo.png" width="480px" />
+  <img src="https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom/blob/master/logo.png" width="480px" />
 </div>
 
 # gatsby-remark-images-medium-zoom-plugin 👋
@@ -61,13 +61,13 @@ plugins: [
 
 https://github.com/francoischalifour/medium-zoom#options
 
-| Property       | Type                                  | Default  | Description                                                                 |
-| -------------- | ------------------------------------- | -------- | --------------------------------------------------------------------------- |
-| `margin`       | `number`                              | `0`      | The space outside the zoomed image                                          |
-| `background`   | `string`                              | `"#fff"` | The background of the overlay                                               |
-| `scrollOffset` | `number`                              | `40`     | The number of pixels to scroll to close the zoom                            |
-| `container`    | `string` \| `HTMLElement` \| `object` | `null`   | The viewport to render the zoom in<br> [Read more →](docs/container.md)     |
-| `template`     | `string` \| `HTMLTemplateElement`     | `null`   | The template element to display on zoom<br> [Read more →](docs/template.md) |
+| Property       | Type                                  | Default  | Description                                      |
+| -------------- | ------------------------------------- | -------- | ------------------------------------------------ |
+| `margin`       | `number`                              | `0`      | The space outside the zoomed image               |
+| `background`   | `string`                              | `"#fff"` | The background of the overlay                    |
+| `scrollOffset` | `number`                              | `40`     | The number of pixels to scroll to close the zoom |
+| `container`    | `string` \| `HTMLElement` \| `object` | `null`   | The viewport to render the zoom in               |
+| `template`     | `string` \| `HTMLTemplateElement`     | `null`   | The template element to display on zoom          |
 
 ## Author
 
@@ -80,4 +80,8 @@ https://github.com/francoischalifour/medium-zoom#options
 
 Give a ⭐️ if this project helped you!
 
+<div align="center">
+
 <sub><sup>Written by <a href="https://github.com/JaeYeopHan">@Jbee</a></sup></sub><small>✌</small>
+
+</div>
