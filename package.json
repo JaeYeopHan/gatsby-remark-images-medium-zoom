@@ -1,6 +1,6 @@
 {
   "name": "gatsby-remark-images-medium-zoom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "medium-zoom plugin for gatsby",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,14 @@
   ],
   "author": "JaeYeopHan (Jbee)",
   "license": "MIT",
+  "homepage": "https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom/issues"
+  },
   "dependencies": {
     "medium-zoom": "^1.0.4"
   }
