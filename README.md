@@ -68,6 +68,7 @@ https://github.com/francoischalifour/medium-zoom#options
 | `scrollOffset` | `number`                              | `40`     | The number of pixels to scroll to close the zoom |
 | `container`    | `string` \| `HTMLElement` \| `object` | `null`   | The viewport to render the zoom in               |
 | `template`     | `string` \| `HTMLTemplateElement`     | `null`   | The template element to display on zoom          |
+| `zIndex` | `number`                              | `999`     | The number of z-index of overlay element and image element |
 
 ## Author
 
