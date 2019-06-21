@@ -7,6 +7,7 @@ const defaultOptions = {
   scrollOffset: 40,
   container: null,
   template: null,
+  zIndex: 999,
 }
 
 // @see https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/constants.js#L1
@@ -14,6 +15,22 @@ const imageClass = '.gatsby-resp-image-image'
 
 export const onRouteUpdate = (_, pluginOptions) => {
   const options = { ...defaultOptions, ...pluginOptions }
+  const { zIndex } = { ...defaultOptions, ...pluginOptions }
+
+  // Inject styles.
+  // Add z-index
+  const styles = `
+    .medium-zoom-overlay, .medium-zoom-image {
+      z-index: ${zIndex};
+    }
+  `
+
+  const node = document.createElement(`style`)
+  node.id = `medium-zoom-styles`
+  node.innerHTML = styles
+  document.head.appendChild(node)
+
+  // Add transition
   const imageElements = document.querySelectorAll(imageClass)
 
   Array.from(imageElements).forEach(imageElement => {
