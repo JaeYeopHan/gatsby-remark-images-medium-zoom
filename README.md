@@ -5,7 +5,7 @@
 # gatsby-remark-images-medium-zoom-plugin 👋
 
 <p>
-  <img src="https://img.shields.io/badge/version-1.0.1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/JbeeLjyhanll">
     <img alt="Twitter: JbeeLjyhanll" src="https://img.shields.io/twitter/follow/JbeeLjyhanll.svg?style=social" target="_blank" />
   </a>
@@ -61,14 +61,14 @@ plugins: [
 
 https://github.com/francoischalifour/medium-zoom#options
 
-| Property       | Type                                  | Default  | Description                                      |
-| -------------- | ------------------------------------- | -------- | ------------------------------------------------ |
-| `margin`       | `number`                              | `0`      | The space outside the zoomed image               |
-| `background`   | `string`                              | `"#fff"` | The background of the overlay                    |
-| `scrollOffset` | `number`                              | `40`     | The number of pixels to scroll to close the zoom |
-| `container`    | `string` \| `HTMLElement` \| `object` | `null`   | The viewport to render the zoom in               |
-| `template`     | `string` \| `HTMLTemplateElement`     | `null`   | The template element to display on zoom          |
-| `zIndex` | `number`                              | `999`     | The number of z-index of overlay element and image element |
+| Property       | Type                                  | Default  | Description                                                |
+| -------------- | ------------------------------------- | -------- | ---------------------------------------------------------- |
+| `margin`       | `number`                              | `0`      | The space outside the zoomed image                         |
+| `background`   | `string`                              | `"#fff"` | The background of the overlay                              |
+| `scrollOffset` | `number`                              | `40`     | The number of pixels to scroll to close the zoom           |
+| `container`    | `string` \| `HTMLElement` \| `object` | `null`   | The viewport to render the zoom in                         |
+| `template`     | `string` \| `HTMLTemplateElement`     | `null`   | The template element to display on zoom                    |
+| `zIndex`       | `number`                              | `999`    | The number of z-index of overlay element and image element |
 
 ## Author
 
