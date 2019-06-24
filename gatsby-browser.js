@@ -13,34 +13,59 @@ const defaultOptions = {
 // @see https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/constants.js#L1
 const imageClass = '.gatsby-resp-image-image'
 
-export const onRouteUpdate = (_, pluginOptions) => {
-  const options = { ...defaultOptions, ...pluginOptions }
-  const { zIndex } = { ...defaultOptions, ...pluginOptions }
+const FIRST_CONTENTFUL_PAINT = 'first-contentful-paint'
+const ZOOM_STYLE_ID = 'medium-zoom-styles'
+const TRANSITION_EFFECT = 'opacity 0.5s, transform .3s cubic-bezier(.2,0,.2,1)'
 
-  // Inject styles.
-  // Add z-index
+function onFCP(callback) {
+  new PerformanceObserver(list =>
+    list
+      .getEntries()
+      .filter(({ name }) => name === FIRST_CONTENTFUL_PAINT)
+      .forEach(callback),
+  ).observe({ entryTypes: ['paint'] })
+}
+
+function injectStyles(options) {
+  const styleTag = document.querySelector(`#${ZOOM_STYLE_ID}`)
+  if (styleTag) {
+    return
+  }
+
+  const { zIndex } = options
+  const node = document.createElement('style')
   const styles = `
-    .medium-zoom-overlay, .medium-zoom-image {
+    .medium-zoom--opened > .medium-zoom-overlay,
+    .medium-zoom--opened > .medium-zoom-image {
       z-index: ${zIndex};
     }
   `
-
-  const node = document.createElement(`style`)
-  node.id = `medium-zoom-styles`
+  node.id = ZOOM_STYLE_ID
   node.innerHTML = styles
   document.head.appendChild(node)
+}
 
-  // Add transition
-  const imageElements = document.querySelectorAll(imageClass)
+function applyZoomEffect(options) {
+  const images = Array.from(document.querySelectorAll(imageClass)).map(el => {
+    function onImageLoad() {
+      const originalTransition = el.style.transition
 
-  Array.from(imageElements).forEach(imageElement => {
-    const onImageLoad = () => {
-      imageElement.style.transition =
-        'opacity 0.5s, transform .3s cubic-bezier(.2,0,.2,1)'
-      imageElement.removeEventListener('load', onImageLoad)
+      el.style.transition = `${originalTransition}, ${TRANSITION_EFFECT}`
+      el.removeEventListener('load', onImageLoad)
     }
-    imageElement.addEventListener('load', onImageLoad)
+    el.addEventListener('load', onImageLoad)
+    return el
   })
 
-  mediumZoom(imageElements, options)
+  if (images.length > 0) {
+    mediumZoom(images, options)
+  }
+}
+
+export const onRouteUpdate = (_, pluginOptions) => {
+  const options = { ...defaultOptions, ...pluginOptions }
+  injectStyles(options)
+
+  onFCP(() => applyZoomEffect(options))
+  applyZoomEffect(options)
 }
