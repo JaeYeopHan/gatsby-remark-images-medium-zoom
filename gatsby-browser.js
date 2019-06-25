@@ -18,12 +18,24 @@ const ZOOM_STYLE_ID = 'medium-zoom-styles'
 const TRANSITION_EFFECT = 'opacity 0.5s, transform .3s cubic-bezier(.2,0,.2,1)'
 
 function onFCP(callback) {
-  new PerformanceObserver(list =>
+  if (!window.performance) {
+    return
+  }
+
+  const po = new PerformanceObserver(list =>
     list
       .getEntries()
-      .filter(({ name }) => name === FIRST_CONTENTFUL_PAINT)
+      .filter(({ entryType }) => entryType === 'paint')
+      .map(({ name }) => name === FIRST_CONTENTFUL_PAINT)
       .forEach(callback),
-  ).observe({ entryTypes: ['paint'] })
+  )
+
+  try {
+    po.observe({ entryTypes: ['measure', 'paint'] })
+  } catch (e) {
+    console.error(e)
+    po.disconnect()
+  }
 }
 
 function injectStyles(options) {
