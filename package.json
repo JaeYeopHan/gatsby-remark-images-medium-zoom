@@ -1,6 +1,6 @@
 {
   "name": "gatsby-remark-images-medium-zoom",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "medium-zoom plugin for gatsby",
   "main": "index.js",
   "scripts": {
