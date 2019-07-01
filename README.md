@@ -5,7 +5,7 @@
 # gatsby-remark-images-medium-zoom-plugin 👋
 
 <p>
-  <img src="https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.2.1-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/JbeeLjyhanll">
     <img alt="Twitter: JbeeLjyhanll" src="https://img.shields.io/twitter/follow/JbeeLjyhanll.svg?style=social" target="_blank" />
   </a>
