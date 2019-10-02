@@ -8,6 +8,7 @@ const defaultOptions = {
   container: null,
   template: null,
   zIndex: 999,
+  excludedSelector: null,
 }
 
 // @see https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/constants.js#L1
@@ -58,7 +59,9 @@ function injectStyles(options) {
 }
 
 function applyZoomEffect(options) {
-  const images = Array.from(document.querySelectorAll(imageClass)).map(el => {
+  const images = Array.from(
+    document.querySelectorAll(`${imageClass}:not(${options.excludedSelector})`)
+  ).map(el => {
     function onImageLoad() {
       const originalTransition = el.style.transition
 
