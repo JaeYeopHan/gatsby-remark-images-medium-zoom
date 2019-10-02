@@ -70,6 +70,12 @@ https://github.com/francoischalifour/medium-zoom#options
 | `template`     | `string` \| `HTMLTemplateElement`     | `null`   | The template element to display on zoom                    |
 | `zIndex`       | `number`                              | `999`    | The number of z-index of overlay element and image element |
 
+In addition, this plugin has its own options:
+
+| Property           | Type                                  | Default  | Description                                            |
+| ------------------ | ------------------------------------- | -------- | ------------------------------------------------------ |
+| `excludedSelector` | `string`                              | `null`   | The selector of excluded images to zoom in             |
+
 ## Author
 
 👤 **JaeYeopHan (Jbee)**
