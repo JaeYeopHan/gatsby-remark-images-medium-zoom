@@ -71,6 +71,13 @@ function applyZoomEffect({ excludedSelector, ...options }) {
         el.removeEventListener("load", onImageLoad)
       }
       el.addEventListener("load", onImageLoad)
+      el.setAttribute('tabIndex', 0)
+      el.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          el.click();
+        }
+      })
       return el
     }
   )
