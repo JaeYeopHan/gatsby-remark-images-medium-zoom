@@ -5,7 +5,7 @@
 # gatsby-remark-images-medium-zoom-plugin 👋
 
 <p>
-  <img src="https://img.shields.io/badge/version-1.2.1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.4.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/JbeeLjyhanll">
     <img alt="Twitter: JbeeLjyhanll" src="https://img.shields.io/twitter/follow/JbeeLjyhanll.svg?style=social" target="_blank" />
   </a>
@@ -72,9 +72,9 @@ https://github.com/francoischalifour/medium-zoom#options
 
 In addition, this plugin has its own options:
 
-| Property           | Type                                  | Default  | Description                                            |
-| ------------------ | ------------------------------------- | -------- | ------------------------------------------------------ |
-| `excludedSelector` | `string`                              | `null`   | The selector of excluded images to zoom in             |
+| Property           | Type     | Default | Description                                |
+| ------------------ | -------- | ------- | ------------------------------------------ |
+| `excludedSelector` | `string` | `null`  | The selector of excluded images to zoom in |
 
 ## Author
 
