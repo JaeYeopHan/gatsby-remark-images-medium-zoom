@@ -62,8 +62,9 @@ function applyZoomEffect({ excludedSelector, ...options }) {
   const imagesSelector = excludedSelector
     ? `${imageClass}:not(${excludedSelector})`
     : imageClass
-  const images = Array.from(document.querySelectorAll(imagesSelector)).map(
-    el => {
+  const images = Array.from(document.querySelectorAll(imagesSelector))
+    .filter(el => !el.classList.contains('medium-zoom-image'))
+    .map(el => {
       function onImageLoad() {
         const originalTransition = el.style.transition
 
