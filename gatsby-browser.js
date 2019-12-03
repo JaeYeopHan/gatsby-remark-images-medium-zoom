@@ -8,7 +8,7 @@ const defaultOptions = {
   container: null,
   template: null,
   zIndex: 999,
-  excludedSelector: null,
+  excludedSelector: null
 }
 
 // @see https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/constants.js#L1
@@ -28,7 +28,7 @@ function onFCP(callback) {
       .getEntries()
       .filter(({ entryType }) => entryType === 'paint')
       .map(({ name }) => name === FIRST_CONTENTFUL_PAINT)
-      .forEach(callback),
+      .forEach(callback)
   )
 
   try {
@@ -49,8 +49,9 @@ function injectStyles(options) {
   const node = document.createElement('style')
   const styles = `
     .medium-zoom--opened > .medium-zoom-overlay,
-    .medium-zoom--opened > .medium-zoom-image {
-      z-index: ${zIndex};
+    .medium-zoom--opened > .medium-zoom-image,
+	  img.medium-zoom-image--opened {
+      z-index: ${zIndex}
     }
   `
   node.id = ZOOM_STYLE_ID
@@ -58,29 +59,32 @@ function injectStyles(options) {
   document.head.appendChild(node)
 }
 
-function applyZoomEffect({ excludedSelector, ...options }) {
+function applyZoomEffect({ excludedSelector, includedSelector, ...options }) {
   const imagesSelector = excludedSelector
     ? `${imageClass}:not(${excludedSelector})`
     : imageClass
-  const images = Array.from(document.querySelectorAll(imagesSelector)).map(
-    el => {
-      function onImageLoad() {
-        const originalTransition = el.style.transition
+  let imageElements = Array.from(document.querySelectorAll(imagesSelector))
+  if (includedSelector) {
+    const includedEls = Array.from(document.querySelectorAll(includedSelector))
+    imageElements = imageElements.concat(includedEls)
+  }
+  const images = imageElements.map(el => {
+    function onImageLoad() {
+      const originalTransition = el.style.transition
 
-        el.style.transition = `${originalTransition}, ${TRANSITION_EFFECT}`
-        el.removeEventListener("load", onImageLoad)
-      }
-      el.addEventListener("load", onImageLoad)
-      el.setAttribute('tabIndex', 0)
-      el.addEventListener('keydown', (e) => {
-        if (e.key === ' ' || e.key === 'Enter') {
-          e.preventDefault();
-          el.click();
-        }
-      })
-      return el
+      el.style.transition = `${originalTransition}, ${TRANSITION_EFFECT}`
+      el.removeEventListener('load', onImageLoad)
     }
-  )
+    el.addEventListener('load', onImageLoad)
+    el.setAttribute('tabIndex', 0)
+    el.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault()
+        el.click()
+      }
+    })
+    return el
+  })
 
   if (images.length > 0) {
     mediumZoom(images, options)
