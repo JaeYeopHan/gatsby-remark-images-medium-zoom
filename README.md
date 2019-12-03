@@ -72,9 +72,10 @@ https://github.com/francoischalifour/medium-zoom#options
 
 In addition, this plugin has its own options:
 
-| Property           | Type     | Default | Description                                |
-| ------------------ | -------- | ------- | ------------------------------------------ |
-| `excludedSelector` | `string` | `null`  | The selector of excluded images to zoom in |
+| Property           | Type     | Default | Description                                                                                          |
+| ------------------ | -------- | ------- | ---------------------------------------------------------------------------------------------------- |
+| `excludedSelector` | `string` | `null`  | The selector of excluded images to zoom in                                                           |
+| `includedSelector` | `string` | `null`  | The selector of included images to zoom in on in addition to the ones parsed by gatsby-remark-images |
 
 ## Author
 
