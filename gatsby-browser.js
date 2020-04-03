@@ -63,28 +63,30 @@ function applyZoomEffect({ excludedSelector, includedSelector, ...options }) {
   const imagesSelector = excludedSelector
     ? `${imageClass}:not(${excludedSelector})`
     : imageClass
+
   let imageElements = Array.from(document.querySelectorAll(imagesSelector))
   if (includedSelector) {
     const includedEls = Array.from(document.querySelectorAll(includedSelector))
     imageElements = imageElements.concat(includedEls)
   }
-  const images = imageElements.map(el => {
-    function onImageLoad() {
-      const originalTransition = el.style.transition
-
-      el.style.transition = `${originalTransition}, ${TRANSITION_EFFECT}`
-      el.removeEventListener('load', onImageLoad)
-    }
-    el.addEventListener('load', onImageLoad)
-    el.setAttribute('tabIndex', 0)
-    el.addEventListener('keydown', e => {
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault()
-        el.click()
+  const images = imageElements
+    .filter(el => !el.classList.contains('medium-zoom-image'))
+    .map(el => {
+      function onImageLoad() {
+        const originalTransition = el.style.transition
+        el.style.transition = `${originalTransition}, ${TRANSITION_EFFECT}`
+        el.removeEventListener('load', onImageLoad)
       }
+      el.addEventListener('load', onImageLoad)
+      el.setAttribute('tabIndex', 0)
+      el.addEventListener('keydown', e => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault()
+          el.click()
+        }
+      })
+      return el
     })
-    return el
-  })
 
   if (images.length > 0) {
     mediumZoom(images, options)
