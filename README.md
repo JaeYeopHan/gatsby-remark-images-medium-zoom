@@ -69,7 +69,6 @@ plugins: [
   {
     resolve: `gatsby-plugin-mdx`,
     options: {
-      extensions: ['.mdx', '.md'],
       // a workaround to solve mdx-remark plugin compat issue
       // https://github.com/gatsbyjs/gatsby/issues/15486
       plugins: [
