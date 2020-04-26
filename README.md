@@ -29,7 +29,11 @@ $ yarn add gatsby-remark-images gatsby-transformer-remark
 
 ## 🚀 How to use
 
-👉 This plugin requires `gatsby-remark-images` and `gatsby-transformer-remark`. You have to set the `linkImagesToOriginal` option to false in gatsby-remark-images.
+👉 This plugin requires `gatsby-remark-images` and either `gatsby-transformer-remark` **or** `gatsby-plugin-mdx`.
+
+The `linkImagesToOriginal` option needs to be set to `false`.
+
+### Use with `gatsby-transformer-remark`
 
 ```javascript
 // In your gatsby-config.js
@@ -42,11 +46,11 @@ plugins: [
           resolve: `gatsby-remark-images`,
           options: {
             maxWidth: 590,
-            linkImagesToOriginal: false // point!
+            linkImagesToOriginal: false // Important!
           }
         },
         {
-          resolve: `gatsby-remark-images-medium-zoom`, // point!
+          resolve: `gatsby-remark-images-medium-zoom`, // Important!
           options: {
             //...
           }
@@ -54,7 +58,39 @@ plugins: [
       ]
     }
   }
-];
+]
+```
+
+### Use with `gatsby-plugin-mdx`
+
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-plugin-mdx`,
+    options: {
+      // a workaround to solve mdx-remark plugin compat issue
+      // https://github.com/gatsbyjs/gatsby/issues/15486
+      plugins: [
+        `gatsby-remark-images`,
+        `gatsby-remark-images-medium-zoom` // Important!
+      ],
+      gatsbyRemarkPlugins: [
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 590,
+            linkImagesToOriginal: false // Important!
+          }
+        },
+        {
+          resolve: `gatsby-remark-images-medium-zoom`, // Important!
+          options: {}
+        }
+      ]
+    }
+  }
+]
 ```
 
 ## ⚙ Options
