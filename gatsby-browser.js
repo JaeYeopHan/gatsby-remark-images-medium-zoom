@@ -19,7 +19,7 @@ const ZOOM_STYLE_ID = 'medium-zoom-styles'
 const TRANSITION_EFFECT = 'opacity 0.5s, transform .3s cubic-bezier(.2,0,.2,1)'
 
 function onFCP(callback) {
-  if (!window.performance) {
+  if (!window.performance || !window.PerformanceObserver) {
     return
   }
 
