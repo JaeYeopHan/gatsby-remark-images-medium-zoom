@@ -1,4 +1,5 @@
 import mediumZoom from 'medium-zoom'
+import '@fastly/performance-observer-polyfill/polyfill'
 
 // @see https://github.com/francoischalifour/medium-zoom#options
 const defaultOptions = {
@@ -19,6 +20,7 @@ const ZOOM_STYLE_ID = 'medium-zoom-styles'
 const TRANSITION_EFFECT = 'opacity 0.5s, transform .3s cubic-bezier(.2,0,.2,1)'
 
 function onFCP(callback) {
+  // @see https://developers.google.com/web/updates/2016/06/performance-observer
   if (!window.performance || !window.PerformanceObserver) {
     return
   }

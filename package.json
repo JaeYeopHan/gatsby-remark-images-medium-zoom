@@ -1,6 +1,6 @@
 {
   "name": "gatsby-remark-images-medium-zoom",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "medium-zoom plugin for gatsby",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "url": "https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom/issues"
   },
   "dependencies": {
+    "@fastly/performance-observer-polyfill": "^1.1.1",
     "medium-zoom": "^1.0.4"
   }
 }

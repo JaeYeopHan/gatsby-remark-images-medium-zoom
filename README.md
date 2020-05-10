@@ -4,8 +4,9 @@
 
 # gatsby-remark-images-medium-zoom-plugin 👋
 
+[![npm version](https://badge.fury.io/js/gatsby-remark-images-medium-zoom.svg)](https://badge.fury.io/js/gatsby-remark-images-medium-zoom)
+
 <p>
-  <img src="https://img.shields.io/badge/version-1.4.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/JbeeLjyhanll">
     <img alt="Twitter: JbeeLjyhanll" src="https://img.shields.io/twitter/follow/JbeeLjyhanll.svg?style=social" target="_blank" />
   </a>
